@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+import json
+import csv
 from google import search
 from bs4 import BeautifulSoup
 import urllib
@@ -11,18 +13,32 @@ def google_scrape(url):
     return soup.title.text
 
 def receive(query):
+    websites = {}
     i = 1
-    for url in search(query, stop=len(query)-1):
+    for url in search(query, stop=50):
         a = google_scrape(url)
-        print str(i) + ". " + a
-        print urlprint
-        print " "
+        websites[a] = url
         i += 1
+    data = json.dumps(websites)
+
+def convert():
+    websites_csv = open('/tmp/websitesData.csv', 'w') # opens file for writing
+    csvwriter = csv.writer(websites_csv) # creates the csv writer object
+    count = 0
+    for i in websites:
+        if count == 0:
+            header = websites.keys()
+            csvwriter.writerow(header)
+            count += 1
+        csvwriter.writerow(websites.values())
+    websites_csv.close()
+
 
 @app.route("/submit", methods = ["POST"])
 def submit():
-    text = query("cat")
-    return "Hello World!"
+    text = receive("cat")
+    convert
+    return "text"
     #return render_template("inputform.html")
 
 
