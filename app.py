@@ -7,11 +7,11 @@ def home():
     # Search engine API
     return render_template('index.html') # creating webpage
 
-@app.route("index")
+@app.route("/index")
 def inputform():
     return render_template("inputform")
 
-@app.route("index")
+@app.route("/index")
 def contact():
     return render_template("contact")
 
