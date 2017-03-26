@@ -19,23 +19,24 @@ def receive():
         print urlprint
         print " "
         i += 1
-"""
+
 @app.route("/submit", methods = ["POST"])
 def submit():
     return "Hello World!"
     #return render_template("inputform.html")
-"""
+
 
 @app.route("/")
+@app.route("/index.html")
 def home():
   return render_template("index.html")
 
 
-@app.route("/")
+@app.route("/contact.html")
 def contact():
   return render_template("contact.html")
 
-@app.route("/")
+@app.route("/inputform.html")
 def inputform():
   return render_template("inputform.html")
 

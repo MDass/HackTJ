@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+		<title>Search</title>
+
+		<meta http-equiv="Content-Language" content="en-us" />
+
+		<style type="text/css" media="all">
+		body {
+			color: black;
+      background: #d1f1fb;
+		}
+		a:link {
+			color: black;
+		}
+		a:hover {
+			color: black;
+		}
+		a:active {
+			color: black;
+		}
+		a:visited {
+			color: black;
+		}
+		.slim{
+			text-align: left;
+			padding: 10px 15px;
+			color: black;
+			font-size: 18px;
+			font-family: "Century Gothic", sans-serif;
+		}
+		.bar {
+			width: 775px;
+			height: 50px;
+			padding: 15px 15px 15px 15px;
+			text-align: center;
+			border: 1px solid black;
+      color: black;
+			margin: auto;
+			font-size: 18px;
+			font-family: "Century Gothic", sans-serif;
+			border-radius: 20px;
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+		h1 {
+			font-family: "Century Gothic", sans-serif;
+			font-size: 25px;
+			text-align: center;
+		}
+		<!-- Form CSS Starts Here -->
+		form {
+			width: 400px;
+			height: 400px;
+			background-color: black;
+			padding: 30px 20px;
+			border: 1px black solid;
+			font-family: "Century Gothic", sans-serif;
+			font-size: 18px;
+			color: black;
+			margin: auto;
+		}
+		.descrip {
+			font-family: "Century Gothic", sans-serif;
+			color: black;
+			text-align: center;
+			width: 500px;
+			height: 50px;
+			display: block;
+			margin: 0 auto;
+			font-size: 30px;
+		}
+		.title {
+			text-align: center;
+			font-size: 35px;
+			font-family: "Century Gothic", sans-serif;
+			font-weight: bold;
+		}
+		.sub {
+			font-weight: none;
+			font-size: 20px;
+		}
+	  .font {
+			font-weight: bold;
+			font-size: 50px;
+		}
+		.label {
+			text-align: center;
+			font-family: "Century Gothic", sans-serif;
+			font-weight: bold;
+			font-size: 20px;
+		}
+		.clearfloat {
+			clear: both;
+		}
+		.data {
+			text-align: center;
+			font-family: "Century Gothic", sans-serif;
+		}
+		.tall {
+			height: 60px;
+			padding-top: 10px;
+		}
+		.tall2 {
+			height: 30px;
+			padding-top: 0px;
+		}
+		.wrap {
+			margin: 50px 200px 50px 200px;
+			padding: 20px;
+		}
+		.logo {
+      text-align: center;
+    }
+		.center {
+			text-align: center;
+		}
+		.sect {
+			text-align: center;
+			font-family: "Copperplate";
+			font-weight: bold;
+			font-size: 60px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="sect">
+			<p>&sect;</p>
+		</div>
+		<div class="descrip">
+		  <p>SLIMSEARCH</p>
+		</div>
+			<br />
+			<table class="bar" align="center">
+				<tr class="">
+					<td><a href="index2.html">Homepage</a></td>
+					<td><a href="inputform2.html">Web Search</a></td>
+					<td><a href="contact2.html">Contact Us</a></td>
+		    </tr>
+			</table>
+			<br />
+			<br />
+	<h1>Search</h1>
+	<!-- Form Begins Here -->
+	<div>
+	<form method="post" action="process.php">
+	  <fieldset class="wrap" class="center">
+		<!-- What the user wants to search -->
+		<div>
+		  <div class="label">Keywords</div>
+			<br />
+		  <div class="data font"><input type="text" size="50" name="keyword" /></div>
+		</div>
+		<div class="clearfloat"></div>
+		<!-- Type of Media -->
+		<div>
+		  <div class="label center tall">Media Type</div>
+			<div class="data center">
+			<input type="checkbox" name="media" value="video" />Video<br />
+			<input type="checkbox" name="media" value="database" />Database<br />
+			<input type="checkbox" name="media" value="image" />Image<br />
+			<input type="checkbox" name="media" value="website" />Website<br />
+			<input type="checkbox" name="media" value="ebook" />eBook<br />
+			</div>
+		</div>
+		<div class="clearfloat"></div>
+			<!-- Preferred Search Engine -->
+		<div>
+		  <div class="label center tall">Search Engine</div>
+			<div class="data center">
+			<input type="checkbox" name="engine" value="google" />Google<br />
+			<input type="checkbox" name="engine" value="bing" />Bing<br />
+			<input type="checkbox" name="engine" value="yahoo" />Yahoo<br />
+			<input type="checkbox" name="engine" value="ask" />Ask<br />
+			<input type="checkbox" name="engine" value="ecosia" />Ecosia<br />
+			</div>
+		</div>
+		<div class="clearfloat"></div>
+ 		<br />
+		<br />
+		 <!-- Academic vs Casual -->
+		<div>
+ 		  <div class="label center tall2">Usage Details</div>
+ 			<div class=" center data">
+ 			<input type="radio" name="remove" value="academic" />Academic (professional and trusted sites only)<br />
+ 			<input type="radio" name="remove" value="casual" />Casual (freelance and entertainment sites)<br />
+ 			</div>
+ 		</div>
+ 		<div class="clearfloat"></div>
+ 		<br />
+	<!-- Email -->
+		<div>
+		  <div class="center label tall2">What is your email? (must be gmail)</div>
+			<div class="center email">
+			<textarea name="email" rows="1" cols="50">
+			</textarea><br />
+			</div>
+		<br />
+		</div>
+		<div class="clearfloat"></div>
+		<br />
+		<div class="center email">
+		<input type="submit" value="Submit" />
+		<button type="reset" value="Reset">Reset</button>
+		</div>
+	</fieldset>
+	</form>
+	</div>
+</body>
+</html>
