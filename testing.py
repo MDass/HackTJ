@@ -16,7 +16,7 @@ def receive():
     for url in search(query, stop=10):
         a = google_scrape(url)
         print str(i) + ". " + a
-        print urlprint " "
+        print urlprint
         print " "
         i += 1
 
