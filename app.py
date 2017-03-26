@@ -5,15 +5,17 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     # Search engine API
-    return render_template('index.html') # creating webpage
+    return render_template("http://www.slimsearch.com/index.html") # creating webpage
 
-@app.route("/inputform")
+@app.route("/inputform". methods=["GET", "POST"])
 def inputform():
-    return render_template("inputform.html")
+    if request.method == "POST":
+        return redirect(url_for('index'))
+    return render_template("http://www.slimsearch.com/inputform.html")
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    return render_template("http://www.slimsearch.com/contact.html")
 
 def result():
     pass
