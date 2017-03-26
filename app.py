@@ -7,7 +7,7 @@ def home():
     # Search engine API
     return render_template("http://www.slimsearch.com/index.html") # creating webpage
 
-@app.route("/inputform". methods=["GET", "POST"])
+@app.route("/inputform", methods=["GET", "POST"])
 def inputform():
     if request.method == "POST":
         return redirect(url_for('index'))
