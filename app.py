@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 def search():
     #session['subject'] = ''
-    return render_template('something.html')
+    return render_template('inputform.html')
 
 """
 @app.route("/")
