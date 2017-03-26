@@ -4,9 +4,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def search():
-    #session['subject'] = ''
-    return render_template('inputform.html')
+    # Search engine API
+    return render_template('inputform.html') # creating webpage
 
+def result():
+    pass
+    # Big Parser API to generate grid
 """
 @app.route("/")
 def main():
