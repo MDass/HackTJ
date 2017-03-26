@@ -10,10 +10,9 @@ def google_scrape(url):
     soup = BeautifulSoup(thepage, "html.parser")
     return soup.title.text
 
-def receive():
+def receive(query):
     i = 1
-    query = "search this"
-    for url in search(query, stop=10):
+    for url in search(query, stop=len(query)-1):
         a = google_scrape(url)
         print str(i) + ". " + a
         print urlprint
@@ -22,23 +21,24 @@ def receive():
 
 @app.route("/submit", methods = ["POST"])
 def submit():
+    text = query("cat")
     return "Hello World!"
     #return render_template("inputform.html")
 
 
 @app.route("/")
-@app.route("/index.html")
+@app.route("/index2.html")
 def home():
-  return render_template("index.html")
+  return render_template("index2.html")
 
 
-@app.route("/contact.html")
+@app.route("/contact2.html")
 def contact():
-  return render_template("contact.html")
+  return render_template("contact2.html")
 
-@app.route("/inputform.html")
+@app.route("/inputform2.html")
 def inputform():
-  return render_template("inputform.html")
+  return render_template("inputform2.html")
 
 
 
