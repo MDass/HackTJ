@@ -1,0 +1,127 @@
+## HTML file
+<form action="/route" method="POST">
+		<input type="text" name="search">
+</form>
+
+## main.py
+import requests, json
+from flask import Flask, session, render_template
+
+app = Flask(__name__)
+
+@app.route('/route)
+def route():
+    # Search engine API
+    searchQuery = request.form['search']
+    generateSearches(search)
+    return render_template('inputform.html') # creating webpage
+
+def result():
+    pass
+    # Big Parser API to generate grid
+    # search queries and google sheets and Big Parser
+
+@app.route('/route')
+def route():
+		searchQuery = request.form['search']
+    generateSearches(search)
+
+def generateSearches(search):
+		googleSearch = googleSearch(search)
+    wikipediaSearch = wikipediaSearch(search)
+    otherSearch = otherSearch(search)
+
+    sync(googleSearch, wikipediaSearch, otherSearch)
+
+def googleSearch(search):
+		searchQuery = "blah blah blah" # Make google search query
+    return searchQuery
+
+def wikipediaSearch(search):
+		searchQuery = "blah blah blah" # Make wikipedia search query
+    return searchQuery
+
+def otherSearch(search):
+		searchQuery = "blah blah blah" # Make other search query
+    return searchQuery
+
+# This function is copied from sync.py
+def sync(googleSearch, wikipediaSearch, otherSearch):
+		BigParserAccountEmail = ""
+    BigParserAccountPassword = ""
+    FileIDFromGrid = ""
+
+    url = "https://www.bigparser.com/APIServices/api/common/login"
+    data = {
+        "emailId": BigParserAccountEmail,
+        "password": BigParserAccountPassword,
+        "loggedIn": True
+    }
+    data_json = json.dumps(data)
+    headers = {'Content-type': 'application/json'}
+    authId = requests.post(url, data=data_json,headers=headers).json()['authId']
+
+    url = "https://www.bigparser.com/connectors-api/api/apps/file/googleDrive/false"
+    data = {
+        "fileIDs" : [FileIDFromGrid]
+    }
+    data_json = json.dumps(data)
+    headers = {'Content-type': 'application/json', 'authId':authId}
+
+    response = requests.put(url, data=data_json, headers=headers).json()
+
+    try:
+        url = "https://www.bigparser.com/connectors-api/api/apps/file/googleDrive/" + response['requestId'] + "/status"
+        headers = {'authId':authId}
+        response = requests.get(url, headers=headers).json()
+        print response
+    except KeyError:
+     	  print "Your Grid is already synced up to the most recent version of your Google Sheet"
+
+    # Get the results that you want from the grid based on what the user wants and store in a variable called results
+    # Something like this: results = [('source1', 'info1', 'info2', 'info3', 'info4', 'info5'), ('source2', 'info1', 'info2', 'info3', 'info4', 'info5')]
+
+    # Display it to user by calling "return render_template(results.html, results=results)"
+
+
+## results.html
+		# Same search bar that the user usually sees
+		<form action="/route" method="POST">
+        <input type="text" name="search">
+    </form>
+
+    # More  HTML here
+
+    # Below is the HTML code for making a table really quickly using flask magic
+		<table class="table table-hover table-condensed table-bordered">
+        <thead>
+          <tr>
+          #headers
+            <th>Source</th>
+            <th>Info 1</th>
+            <th>Info 2</th>
+            <th>Info 3</th>
+            <th>Info 4</th>
+            <th>Info 5</th>
+          </tr>
+        </thead>
+        <tbody>
+        #actual data
+          {% for result in results %}
+            <tr>
+              <td>{{result[0]}}</td>
+              <td>{{result[1]}}</td> #matches to the headers (Info 1, etc.)
+              <td>{{result[2]}}</td> #must have same number of <th> as <td>
+              <td>{{result[3]}}</td>
+              <td>{{result[4]}}</td>
+              <td>{{result[5]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+		# More HTML here
+
+
+if __name__ == "__main__":
+  app.run()
