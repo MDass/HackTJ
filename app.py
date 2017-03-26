@@ -3,9 +3,17 @@ from flask import Flask, session, render_template
 app = Flask(__name__)
 
 @app.route("/")
-def search():
+def home():
     # Search engine API
-    return render_template('inputform.html') # creating webpage
+    return render_template('index.html') # creating webpage
+
+@app.route("/")
+def inputform():
+    return render_template("inputform")
+
+@app.route("/")
+def contact():
+    return render_template("contact")
 
 def result():
     pass

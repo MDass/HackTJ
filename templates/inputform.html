@@ -9,34 +9,49 @@
 
 		<style type="text/css" media="all">
 		body {
-			color: white;
-			background-color: black;
+			color: black;
+			background: url("backgroundsearch.jpg") no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-backgrounds-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
 		}
 		a:link {
-			color: white;
+			color: black;
 		}
 		a:hover {
-			color: #ff4dd2;
+			color: black;
 		}
 		a:active {
-			color: orange;
+			color: black;
 		}
 		a:visited {
-			color: #00ff00;
+			color: black;
+		}
+		.slim{
+			text-align: left;
+			padding: 10px 15px;
+			color: black;
+			font-size: 18px;
+			font-family: "Century Gothic", sans-serif;
 		}
 		.bar {
-			width: 600px;
+			width: 775px;
 			height: 50px;
-			padding: 15px 25px;
+			padding: 15px 15px 15px 15px;
 			text-align: center;
-			border: 1px solid white;
+			border: 1px solid black;
+      color: black;
 			margin: auto;
 			font-size: 18px;
 			font-family: "Century Gothic", sans-serif;
-			}
+			border-radius: 20px;
+			background-color: rgba(0, 0, 0, 0.2);
+		}
 		h1 {
 			font-family: "Century Gothic", sans-serif;
 			font-size: 25px;
+			text-align: center;
 		}
 		<!-- Form CSS Starts Here -->
 		form {
@@ -44,25 +59,47 @@
 			height: 400px;
 			background-color: black;
 			padding: 30px 20px;
-			border: 1px white solid;
+			border: 1px black solid;
 			font-family: "Century Gothic", sans-serif;
 			font-size: 18px;
-			color: white;
+			color: black;
 			margin: auto;
 		}
-		.label {
-			width: 100px;
-			text-align: right;
-			float: left;
-			padding: 5px;
-			margin-right: 20px;
+		.descrip {
 			font-family: "Century Gothic", sans-serif;
+			color: black;
+			text-align: center;
+			width: 500px;
+			height: 50px;
+			display: block;
+			margin: 0 auto;
+			font-size: 30px;
+		}
+		.title {
+			text-align: center;
+			font-size: 35px;
+			font-family: "Century Gothic", sans-serif;
+			font-weight: bold;
+		}
+		.sub {
+			font-weight: none;
+			font-size: 20px;
+		}
+	  .font {
+			font-weight: bold;
+			font-size: 50px;
+		}
+		.label {
+			text-align: center;
+			font-family: "Century Gothic", sans-serif;
+			font-weight: bold;
+			font-size: 20px;
 		}
 		.clearfloat {
 			clear: both;
 		}
 		.data {
-			text-align: left;
+			text-align: center;
 			padding: 5px;
 			font-family: "Century Gothic", sans-serif;
 		}
@@ -71,41 +108,54 @@
 			padding-top: 34px;
 		}
 		.tall2 {
-			height: 50px;
+			height: 30px;
 			padding-top: 0px;
 		}
 		.wrap {
-			margin: auto;
+			margin: 50px 200px 50px 200px;
+			padding: 20px;
+		}
+		.logo {
+      text-align: center;
+    }
+		.center {
+			text-align: center;
 		}
 		</style>
 	</head>
-
 	<body>
-	<img src="media/logo.jpg" width="150" height="150" alt="Bar Logo" align="center"/>
-	<br />
-	<table class="bar" align="center">
-		<tr class="">
-			<td><a href="index.html">Home</a></td>
-			<td><a href="inputform.html">Search</a></td>
-			<td><a href="contact.html"></a>Contact Us</td>
-		</tr>
-	</table>
+		<div class="logo">
+			<img src="logo.gif" width="108" height="100" alt="Site Logo" />
+		</div>
+		<div class="descrip">
+		  <p>SLIMSEARCH</p>
+		</div>
+			<br />
+			<table class="bar" align="center">
+				<tr class="">
+					<td><a href="index.html">Homepage</a></td>
+					<td><a href="inputform.html">Web Search</a></td>
+					<td><a href="contact.html">Contact Us</a></td>
+		    </tr>
+			</table>
+			<br />
+			<br />
 	<h1>Search</h1>
 	<!-- Form Begins Here -->
 	<div>
 	<form method="post" action="process.php">
-	  <fieldset class="wrap">
+	  <fieldset class="wrap" class="center">
 		<!-- What the user wants to search -->
 		<div>
 		  <div class="label">Keywords</div>
-		  <div class="data"><input type="text" size="55" name="keyword" /></div>
+		  <div class="data font"><input type="text" size="50" name="keyword" /></div>
 		</div>
 		<div class="clearfloat"></div>
 		<br />
 		<!-- Type of Media -->
 		<div>
-		  <div class="label tall">Media Type<br /></div>
-			<div class="data">
+		  <div class="label center tall">Media Type</div>
+			<div class="data center">
 			<input type="checkbox" name="media" value="video" />Video<br />
 			<input type="checkbox" name="media" value="database" />Database<br />
 			<input type="checkbox" name="media" value="image" />Image<br />
@@ -117,11 +167,11 @@
 		<br />
 			<!-- Preferred Search Engine -->
 		<div>
-		  <div class="label tall">Search Engine<br /></div>
-			<div class="data">
+		  <div class="label center tall">Search Engine</div>
+			<div class="data center">
 			<input type="checkbox" name="engine" value="google" />Google<br />
 			<input type="checkbox" name="engine" value="bing" />Bing<br />
-			<input type="checkbox" name="engine" value="yahoo" />yahoo<br />
+			<input type="checkbox" name="engine" value="yahoo" />Yahoo<br />
 			<input type="checkbox" name="engine" value="ask" />Ask<br />
 			<input type="checkbox" name="engine" value="ecosia" />Ecosia<br />
 			</div>
@@ -130,8 +180,8 @@
 		<br />
 		 <!-- Academic vs Casual -->
 		<div>
- 		  <div class="label tall2">Usage Details<br /></div>
- 			<div class="data">
+ 		  <div class="label center tall2">Usage Details</div>
+ 			<div class=" center data">
  			<input type="radio" name="remove" value="academic" />Academic (professional and trusted sites only)<br />
  			<input type="radio" name="remove" value="casual" />Casual (freelance and entertainment sites)<br />
  			</div>
@@ -140,15 +190,16 @@
  		<br />
 	<!-- Email -->
 		<div>
-		  <div class="label tall2">What is your email?</div>
-			<div class="email">
+		  <div class="center label tall2">What is your email?(must be gmail)</div>
+			<div class="center email">
 			<textarea name="email" rows="1" cols="50">
-Enter your email here
 			</textarea><br />
 			</div>
+		<br />
 		</div>
 		<div class="clearfloat"></div>
-		<div class="email">
+		<br />
+		<div class="center email">
 		<input type="submit" value="Submit" />
 		<button type="reset" value="Reset">Reset</button>
 		</div>
